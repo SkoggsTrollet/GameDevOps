@@ -1,0 +1,82 @@
+# GDD
+
+## Idea
+
+Player takes control of a star fighter and fights space creatures in a solar system.
+
+## Game Components
+
+- Spaceship Controller
+- Character Controller
+- Custom Gravity
+- Solar System
+  - Procedurally Generated Planets
+  - Weather System
+  - Asteroid Field
+- Boss AI
+  - States:
+    - Seeking
+    - Avoiding
+    - Chasing_Slow
+    - Chasing_Fast
+    - Charging
+    - Dying
+- Inventory System
+- Upgrades
+  - Weapons
+    - Missiles
+    - Seismic Charge
+    - Mines
+  - Ship
+    - Shield
+    - Invisibility
+    - Smoke Screens
+    - Hyper Drive
+  - Engine
+    - Max Speed
+    - Acceleration
+    - Handling (Rotation)
+- Lose/ Win Condition
+- 3D Models:
+  - Modular Spaceship
+    - Base
+    - Wings
+    - Turret
+    - Engine
+  - Structures
+    - Factory
+    - Ruins
+    - Alien Temple
+  - Boss
+- Resource Gathering
+- Compatibility With New Input System
+- VFX
+  - Foliage Vertex Displacement
+  - Boss
+    - Beam Attack
+    - Breakable Armor
+    - Emissive Light/ Energy Effect between scale (for HP)
+  - Weaponry
+    - Explosions
+    - Bullet (Laser) Tracer
+    - Impact Effect
+    - Muzzle Flash
+    - Contact Sparks
+    - Fire
+  - Environment
+    - Water
+    - Rain
+    - Storms
+    - Lightning Strikes
+    - Clouds
+    - Wind
+    - Snow
+    - Dust
+  - Spaceship
+    - Thruster Fire
+    - Control Panel
+      - HP
+      - Speed
+      - Boss position
+      - Boss current state
+- SFX
