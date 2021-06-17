@@ -4,45 +4,34 @@ using UnityEngine;
 
 public class CelestialBody : MonoBehaviour
 {
-    [SerializeField]
-    public bool isSun;
-    [HideInInspector]
-    public float mass;
+    [SerializeField] bool isSun;
+
     public float radius;
-    public float SurfaceGravity;
-
+    public float surfaceGravity;
     public Vector3 initialVelocity;
-    [HideInInspector]
-    public Vector3 currentVelocity;
-
-    public float Mass => SurfaceGravity * radius * radius / Universe.gravitationalConstant;
+    public Body body;
+    public float Mass => surfaceGravity * radius * radius / Universe.gravitationalConstant;
 
     void Awake()
     {
-        mass = SurfaceGravity * radius * radius / Universe.gravitationalConstant;
-        currentVelocity = initialVelocity;
+        body = new Body(isSun, initialVelocity, transform.position, surfaceGravity, radius);
     }
 
     public void UpdateVelocity(CelestialBody[] allBodies, float timeStep)
     {
-        if (isSun)
-            return;
+        Body[] bodies = new Body[allBodies.Length];
 
-        foreach (var otherBody in allBodies)
+        for (int i = 0; i < allBodies.Length; i++)
         {
-            if(otherBody != this)
-            {
-                float sqrDist = (otherBody.transform.position - transform.position).sqrMagnitude;
-                Vector3 forceDir = (otherBody.transform.position - transform.position).normalized;
-                Vector3 force = forceDir * Universe.gravitationalConstant * mass * otherBody.mass / sqrDist;
-                Vector3 acceleration = force / mass;
-                currentVelocity += acceleration * timeStep;
-            }
+            bodies[i] = allBodies[i].body;
         }
+
+        body.UpdateVelocity(bodies, timeStep);
     }
 
     public void UpdatePosition(float timeStep)
     {
-        transform.position += currentVelocity * timeStep;
+        body.UpdatePosition(timeStep);
+        transform.position = body.position;
     }
 }

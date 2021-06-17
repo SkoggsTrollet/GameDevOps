@@ -68,4 +68,21 @@ public class BodyTest
 
         Assert.AreNotEqual(previousPosition, body.position);
     }
+
+    [Test]
+    public void if_position_for_body_is_not_NaN_with_other_body()
+    {
+        Body sun = CreateTestBody(true);
+        Body body = CreateTestBody(false);
+        Body[] bodies = { sun, body };
+        body.initialVelocity = body.currentVelocity = Vector3.zero;
+        body.position = new Vector3(10, 10, 10);
+
+        body.UpdateVelocity(bodies, Universe.physicsTimeStep);
+        body.UpdatePosition(Universe.physicsTimeStep);    
+
+        Assert.IsFalse(float.IsNaN(body.position.x));
+        Assert.IsFalse(float.IsNaN(body.position.y));
+        Assert.IsFalse(float.IsNaN(body.position.z));
+    }
 }

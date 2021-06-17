@@ -33,8 +33,8 @@ public class Body
         {
             if (body != this)
             {
-                float sqrDist = (body.position - body.position).sqrMagnitude;
-                Vector3 forceDir = (body.position - body.position).normalized;
+                float sqrDist = (body.position - position).sqrMagnitude;
+                Vector3 forceDir = (body.position - position).normalized;
                 Vector3 force = forceDir * Universe.gravitationalConstant * mass * body.mass / sqrDist;
                 Vector3 acceleration = force / mass;
                 currentVelocity += acceleration * timeStep;
