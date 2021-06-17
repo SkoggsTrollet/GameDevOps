@@ -5,14 +5,15 @@ using UnityEngine;
 public class CelestialBody : MonoBehaviour
 {
     [SerializeField]
-    bool isSun;
+    public bool isSun;
     [HideInInspector]
     public float mass;
     public float radius;
     public float SurfaceGravity;
 
     public Vector3 initialVelocity;
-    Vector3 currentVelocity;
+    [HideInInspector]
+    public Vector3 currentVelocity;
 
     public float Mass => SurfaceGravity * radius * radius / Universe.gravitationalConstant;
 
