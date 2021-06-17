@@ -41,4 +41,9 @@ public class Body
             }
         }
     }
+
+    public void UpdatePosition(float timeStep)
+    {
+        position += currentVelocity * timeStep;
+    }
 }

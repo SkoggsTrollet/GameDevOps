@@ -42,4 +42,30 @@ public class BodyTest
 
         Assert.AreNotEqual(body.initialVelocity, body.currentVelocity);
     }
+
+    [Test]
+    public void change_in_position_for_body_with_initial_velocity()
+    {
+        Body body = CreateTestBody(false);
+
+        Vector3 previousPosition = body.position;
+        body.UpdatePosition(Universe.physicsTimeStep);
+
+        Assert.AreNotEqual(previousPosition, body.position);
+    }
+
+    [Test]
+    public void change_in_positon_for_body_without_initial_velocity_with_other_body()
+    {
+        Body sun = CreateTestBody(true);
+        Body body = CreateTestBody(false);
+        Body[] bodies = { sun, body };
+        body.initialVelocity = body.currentVelocity = Vector3.zero;
+
+        body.UpdateVelocity(bodies, Universe.physicsTimeStep);
+        Vector3 previousPosition = body.position;
+        body.UpdatePosition(Universe.physicsTimeStep);
+
+        Assert.AreNotEqual(previousPosition, body.position);
+    }
 }
