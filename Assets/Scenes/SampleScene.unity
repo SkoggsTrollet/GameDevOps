@@ -156,8 +156,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSun: 1
-  radius: 450
-  surfaceGravity: 270
+  radius: 150
+  surfaceGravity: 5
   initialVelocity: {x: 0, y: 0, z: 0}
 --- !u!135 &79596551
 SphereCollider:
@@ -230,7 +230,7 @@ Transform:
   m_GameObject: {fileID: 79596549}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 900, y: 900, z: 900}
+  m_LocalScale: {x: 150, y: 150, z: 150}
   m_Children:
   - {fileID: 1690490683}
   m_Father: {fileID: 253010568}
@@ -310,8 +310,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 464339959}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2717, y: 0, z: 0}
-  m_LocalScale: {x: 180, y: 180, z: 180}
+  m_LocalPosition: {x: 2400, y: 0, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 1720836645}
   m_Father: {fileID: 253010568}
@@ -330,9 +330,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSun: 0
-  radius: 90
-  surfaceGravity: 2
-  initialVelocity: {x: 0, y: 2.9, z: 113.7}
+  radius: 5
+  surfaceGravity: 0.3
+  initialVelocity: {x: 0, y: 0, z: 5.06}
 --- !u!135 &464339962
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1550,8 +1550,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1194473214}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2190, y: 0, z: 0}
-  m_LocalScale: {x: 600, y: 600, z: 600}
+  m_LocalPosition: {x: 2500, y: 0, z: 0}
+  m_LocalScale: {x: 20, y: 20, z: 20}
   m_Children:
   - {fileID: 1151457163}
   m_Father: {fileID: 253010568}
@@ -1570,9 +1570,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSun: 0
-  radius: 300
-  surfaceGravity: 10
-  initialVelocity: {x: 0, y: 0, z: 150}
+  radius: 20
+  surfaceGravity: 0.8
+  initialVelocity: {x: 0, y: 0, z: 7}
 --- !u!135 &1194473217
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1665,7 +1665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numSteps: 5000
-  timeStep: 0.24
+  timeStep: 2
   usePhysicsTimeStep: 0
   relativeToBody: 1
   centralBody: {fileID: 79596550}
