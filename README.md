@@ -6,22 +6,25 @@ The goal of this project is to explore how contemporary software practices and D
 
 This is a list of various topics we'd like to explore this summer:
 
-- Project setup
-  - Open source game development
-  - Issue management and project boards
-- Test Driven Development
-- Git
-  - Dealing with large binaries
-    - Shallow cloning
-    - Git LFS
-    - Unity packs
-- GitHub Actions
-  - Automating Unity workflows
-- Automating package management
-- Dependency and configuration management
-- Release automation
-  - Itch.io
-  - Steam
+- [X] Project setup
+  - [X] Open source game development
+  - [X] Issue management and project boards
+- [X] Test Driven Development
+  - [X] Introduction to TDD
+  - [ ] TDD in Unity
+- [ ] Git
+  - [ ] Introduction to Git
+  - [ ] Dealing with large binaries
+    - [ ] Shallow cloning
+    - [ ] Git LFS
+    - [ ] Unity packs
+- [ ] GitHub Actions
+  - [ ] Automating Unity workflows
+- [ ] Automating package management
+- [ ] Dependency and configuration management
+- [ ] Release automation
+  - [ ] Itch.io
+  - [ ] Steam
 
 ## Project flow
 
