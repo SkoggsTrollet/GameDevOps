@@ -11,7 +11,7 @@ This is a list of various topics we'd like to explore this summer:
   - [X] Issue management and project boards
 - [X] Test Driven Development
   - [X] Introduction to TDD
-  - [ ] TDD in Unity
+  - [X] TDD in Unity
 - [ ] Git
   - [ ] Introduction to Git
   - [ ] Dealing with large binaries
@@ -20,6 +20,7 @@ This is a list of various topics we'd like to explore this summer:
     - [ ] Unity packs
 - [ ] GitHub Actions
   - [ ] Automating Unity workflows
+- [ ] DORA metrics in Unity
 - [ ] Automating package management
 - [ ] Dependency and configuration management
 - [ ] Release automation
