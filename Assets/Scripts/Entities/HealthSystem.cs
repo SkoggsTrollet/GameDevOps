@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthSystem
@@ -9,17 +7,7 @@ public class HealthSystem
 
     bool isDead => hitPoints <= 0;
 
-    public HealthSystem(int maxHitPoints)
-    {
-        if (maxHitPoints < 1)
-        {
-            this.maxHitPoints = hitPoints = 1;
-        }
-        else
-        {
-            this.maxHitPoints = hitPoints = maxHitPoints;
-        }
-    }
+    public HealthSystem(int maxHitPoints) : this(maxHitPoints, maxHitPoints) { }
     
     public HealthSystem(int maxHitPoints, int initialHitPoints)
     {
@@ -59,10 +47,5 @@ public class HealthSystem
     public int GetHitPoints()
     {
         return hitPoints;
-    }
-
-    public void SetHitPoints(int hitPoints)
-    {
-        this.hitPoints = hitPoints;
     }
 }
