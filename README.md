@@ -18,6 +18,8 @@ This is a list of various topics we'd like to explore this summer:
     - [ ] Shallow cloning
     - [ ] Git LFS
     - [ ] Unity packs
+- [ ] Debugging
+  - [ ] VS
 - [ ] GitHub Actions
   - [ ] Automating Unity workflows
 - [ ] DORA metrics in Unity
