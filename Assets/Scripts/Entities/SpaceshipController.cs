@@ -2,21 +2,49 @@ using UnityEngine;
 
 public class SpaceshipController
 {
-    float minVelocity;
-    float velocity;
-    public SpaceshipController(float minVelocity)
+    float minSpeed;
+    float maxSpeed;
+    float speed;
+    float acceleration;
+
+    public SpaceshipController(float minSpeed, float maxSpeed, float acceleration)
     {
-        this.minVelocity = minVelocity;
-        velocity = minVelocity;
+        this.minSpeed = Mathf.Abs(minSpeed);
+        this.maxSpeed = Mathf.Abs(maxSpeed);
+        this.acceleration = Mathf.Abs(acceleration);
+        speed = this.minSpeed;
     }
 
-    public float GetMinVelocity()
+    public void UpdateSpeed(float timestep, int direction)
     {
-        return minVelocity;
+        if (timestep < 0) { return; }
+
+        speed += direction * acceleration * timestep;
+        speed = Mathf.Clamp(speed, minSpeed, maxSpeed);
     }
 
-    public float GetVelocity()
+    public float GetMinSpeed()
     {
-        return velocity;
+        return minSpeed;
+    }
+
+    public float GetMaxSpeed()
+    {
+        return maxSpeed;
+    }
+
+    public float GetSpeed()
+    {
+        return speed;
+    }
+
+    public void SetSpeed(float speed)
+    {
+        this.speed = speed;
+    }
+
+    public float GetAcceleration()
+    {
+        return acceleration;
     }
 }
