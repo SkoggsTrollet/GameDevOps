@@ -51,7 +51,7 @@ public class RotationControllerTest
         1920/2, 1080*3/4,
         0,0,
         0,0.5f)]
-    public void calculate_mouse_position_properly(
+    public void calculate_inner_limit_mouse_position_properly(
         float xMousePos, float yMousePos,
         float xInnerLimit, float yInnerLimt,
         float xExpected, float yExpected)
