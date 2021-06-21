@@ -30,4 +30,18 @@ public class HealthSystemTest
 
         Assert.AreEqual(expected, healthSystem.GetHitPoints());
     }
+
+    [TestCase(3, 2, 5, 1)]
+    [TestCase(5, 10, 5, 1)]
+    [TestCase(1, -2, 5, 1)]
+    [TestCase(0, 10, 5, 0)]
+    public void replenish_with_correct_values(int expected, int replenishAmount, int maxHitPoints, int initialHitPoints)
+    {
+        HealthSystem healthSystem = new HealthSystem(maxHitPoints);
+        healthSystem.SetHitPoints(initialHitPoints);
+
+        healthSystem.Replenish(replenishAmount);
+
+        Assert.AreEqual(expected, healthSystem.GetHitPoints());
+    }
 }
