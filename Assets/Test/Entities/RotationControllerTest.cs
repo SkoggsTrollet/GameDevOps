@@ -102,7 +102,7 @@ public class RotationControllerTest
     }
 
     [Test]
-    public void limits_set_properly()
+    public void outer_limit_is_greater_than_inner_limit()
     {
         Vector2 innerLimit = new Vector2(1, 1);
         Vector2 outerLimit = new Vector2(0, 0);
@@ -111,5 +111,27 @@ public class RotationControllerTest
 
         Assert.That(rotationController.GetOuterLimit().x, Is.GreaterThan(rotationController.GetInnerLimit().x));
         Assert.That(rotationController.GetOuterLimit().y, Is.GreaterThan(rotationController.GetInnerLimit().y));
+    }
+
+    [Test]
+    public void outer_limit_is_lesser_than_screen_size()
+    {
+        Vector2 outerLimit = new Vector2(3000, 3000);
+
+        RotationController rotationController = new RotationController(0, 0, 0, Vector2.zero, outerLimit);
+
+        Assert.That(rotationController.GetOuterLimit().x, Is.LessThanOrEqualTo(Screen.width / 2));
+        Assert.That(rotationController.GetOuterLimit().y, Is.LessThanOrEqualTo(Screen.height / 2));
+    }
+
+    [Test]
+    public void inner_limit_is_lesser_than_screen_size()
+    {
+        Vector2 innerLimit = new Vector2(3000, 3000);
+
+        RotationController rotationController = new RotationController(0, 0, 0, innerLimit, Vector2.zero);
+
+        Assert.That(rotationController.GetInnerLimit().x, Is.LessThanOrEqualTo(5));
+        Assert.That(rotationController.GetInnerLimit().y, Is.LessThanOrEqualTo(5));
     }
 }

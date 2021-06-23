@@ -24,9 +24,32 @@ public class RotationController
         this.innerLimit = innerLimit;
         this.outerLimit = outerLimit;
 
-        if(outerLimit.magnitude <= innerLimit.magnitude)
+        ClampLimits();
+    }
+
+    private void ClampLimits()
+    {
+        if (outerLimit.x > Screen.width / 2)
         {
-            this.outerLimit = innerLimit + Vector2.one;
+            outerLimit.x = Screen.width / 2;
+        }
+        if (outerLimit.y > Screen.height / 2)
+        {
+            outerLimit.y = Screen.height / 2;
+        }
+
+        if (innerLimit.x > Screen.width / 2)
+        {
+            innerLimit.x = 5;
+        }
+        if (innerLimit.y > Screen.height / 2)
+        {
+            innerLimit.y = 5;
+        }
+
+        if (outerLimit.magnitude <= innerLimit.magnitude)
+        {
+            outerLimit = innerLimit + Vector2.one;
         }
     }
 
