@@ -27,6 +27,7 @@ public class RotationControllerTest
 
 
     // Using aspect ration Full HD (1920x1080) in unity
+    // Make sure the screen size has been updated before running tests
     [TestCase(
         1920/2+1,1080/2+1,
         1,1,
@@ -38,19 +39,19 @@ public class RotationControllerTest
     [TestCase(
         1920/4, 1080/2,
         0,0,
-        -0.5f,0)]
+        -1,0)]
     [TestCase(
         1920*3/4, 1080/2,
         0,0,
-        0.5f,0)]
+        1,0)]
     [TestCase(
         1920/2, 1080/4,
         0,0,
-        0,-0.5f)]
+        0,-1)]
     [TestCase(
         1920/2, 1080*3/4,
         0,0,
-        0,0.5f)]
+        0,1)]
     public void calculate_inner_limit_mouse_position_properly(
         float xMousePos, float yMousePos,
         float xInnerLimit, float yInnerLimt,
@@ -60,10 +61,52 @@ public class RotationControllerTest
         Vector2 innerLimit = new Vector2(xInnerLimit, yInnerLimt);
         Vector2 expected = new Vector2(xExpected, yExpected);
 
-        RotationController rotationController = new RotationController(0, 0, 0, innerLimit, Vector2.zero);
+        RotationController rotationController = new RotationController(0, 0, 0, innerLimit, Vector2.one*2);
 
         rotationController.CalculateMouseDistance(mousePos);
 
         Assert.That(rotationController.GetMouseDistance(), Is.EqualTo(expected));
+    }
+
+
+    [TestCase(
+        1920/2 - 5, 1080/2 - 5,
+        5,5,
+        -1,-1)]
+    [TestCase(
+        1920/2 - 6, 1080/2 - 5,
+        5, 5,
+        -1, -1)]
+    [TestCase(
+        1920, 1080,
+        1920/2, 1080/2,
+        1, 1)]
+    [TestCase(
+        5,5,
+        0,0,
+        1,1)]
+    public void calculate_outer_limit_mouse_position_properly(
+        float xMousePos, float yMousePos,
+        float xOuterLimit, float yOuterLimit,
+        float xExpected, float yExpected)
+    {
+        Vector2 mousePos = new Vector2(xMousePos, yMousePos);
+        Vector2 outerLimit = new Vector2(xOuterLimit, yOuterLimit);
+        Vector2 expected = new Vector2(xExpected, yExpected);
+
+        RotationController rotationController = new RotationController(0, 0, 0, Vector2.one, outerLimit);
+
+        rotationController.CalculateMouseDistance(mousePos);
+
+        Assert.That(rotationController.GetMouseDistance(), Is.EqualTo(expected));
+    }
+
+    public void limits_set_properly(
+        float xInnerLimit, float yInnerLimit,
+        float xOuterLimit, float yOuterLimit)
+    {
+        Vector2 innerLimit = new Vector2(xInnerLimit, yInnerLimt);
+        Vector2 outerLimit = new Vector2(xOuterLimit, yOuterLimit);
+
     }
 }

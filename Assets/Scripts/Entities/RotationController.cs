@@ -36,21 +36,24 @@ public class RotationController
 
         if(mousePos.x > Screen.width / 2 + innerLimit.x)
         {
-            mouseDistance.x = (mousePos.x - (Screen.width / 2 + innerLimit.x)) / (Screen.width / 2 - innerLimit.x);
+            mouseDistance.x = (mousePos.x - (Screen.width/2 + innerLimit.x)) / (outerLimit.x - innerLimit.x);
         }
         else if(mousePos.x < Screen.width / 2 - innerLimit.x)
         {
-            mouseDistance.x = (mousePos.x - (Screen.width / 2 - innerLimit.x)) / (Screen.width / 2 - innerLimit.x);
+            mouseDistance.x = (mousePos.x - (Screen.width / 2 - innerLimit.x)) / (outerLimit.x - innerLimit.x);
         }
 
         if(mousePos.y > Screen.height / 2 + innerLimit.y)
         {
-            mouseDistance.y = (mousePos.y - (Screen.height / 2 + innerLimit.y)) / (Screen.height / 2 - innerLimit.y);
+            mouseDistance.y = (mousePos.y - (Screen.height / 2 + innerLimit.y)) / (outerLimit.y - innerLimit.y);
         }
         else if(mousePos.y < Screen.height / 2 - innerLimit.y)
         {
-            mouseDistance.y = (mousePos.y - (Screen.height / 2 - innerLimit.y)) / (Screen.height / 2 - innerLimit.y);
+            mouseDistance.y = (mousePos.y - (Screen.height / 2 - innerLimit.y)) / (outerLimit.y - innerLimit.y);
         }
+
+        mouseDistance.x = Mathf.Clamp(mouseDistance.x, -1, 1);
+        mouseDistance.y = Mathf.Clamp(mouseDistance.y, -1, 1);
     }
 
     public Vector3 GetRotationSpeed()
