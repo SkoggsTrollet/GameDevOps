@@ -11,13 +11,13 @@ public class Spaceship : MonoBehaviour
     [SerializeField] float acceleration = 25f;
 
     HealthSystem healthSystem;
-    SpaceshipController shipController;
+    SpeedController speedController;
     Rigidbody body;
 
     void Start()
     {
         healthSystem = new HealthSystem(maxHitPoints);
-        shipController = new SpaceshipController(minSpeed, maxSpeed, acceleration);
+        speedController = new SpeedController(minSpeed, maxSpeed, acceleration);
 
         body = GetComponent<Rigidbody>();
     }
@@ -25,11 +25,11 @@ public class Spaceship : MonoBehaviour
     void Update()
     {
         int verticalDirection = (int) Input.GetAxisRaw("Vertical");
-        shipController.UpdateSpeed(Time.deltaTime, verticalDirection);
+        speedController.UpdateSpeed(Time.deltaTime, verticalDirection);
     }
 
     void FixedUpdate()
     {
-        body.velocity = transform.forward * shipController.GetSpeed();
+        body.velocity = transform.forward * speedController.GetSpeed();
     }
 }

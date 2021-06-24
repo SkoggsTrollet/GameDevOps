@@ -1,13 +1,14 @@
 using UnityEngine;
 
-public class SpaceshipController
+public class SpeedController
 {
     float minSpeed;
     float maxSpeed;
     float speed;
     float acceleration;
 
-    public SpaceshipController(float minSpeed, float maxSpeed, float acceleration)
+
+    public SpeedController(float minSpeed, float maxSpeed, float acceleration)
     {
         this.minSpeed = Mathf.Abs(minSpeed);
         this.maxSpeed = Mathf.Abs(maxSpeed);
