@@ -25,6 +25,33 @@ public class RotationControllerTest
         Assert.That(rotationController.GetDeltaRotation().z, Is.EqualTo(expected));
     }
 
+    [TestCase(1080 / 2, 1, 10, 0)]
+    [TestCase(1080 / 2 - 2, 1, 10, -10)]
+    [TestCase(1080 / 2 + 2, 1 , 10, 10)]
+    [TestCase(1080 / 2 + 0.5f, 1, 10, 5)]
+    public void pitch_delta_calculated_properly(float yMousePos, float timeStep, float pitch, float expected)
+    {
+        RotationController rotationController = new RotationController(pitch, 0, 0, Vector2.zero, Vector2.one);
+
+        rotationController.UpdateMouseDistance(new Vector2(1920 / 2, yMousePos), new Vector2(1920, 1080));
+        rotationController.UpdateRotation(0, timeStep);
+
+        Assert.That(rotationController.GetDeltaRotation().x, Is.EqualTo(expected));
+    }
+
+    [TestCase(1920 / 2, 1, 10, 0)]
+    [TestCase(1920 / 2 - 2, 1, 10, -10)]
+    [TestCase(1920 / 2 + 2, 1, 10, 10)]
+    [TestCase(1920 / 2 + 0.5f, 1, 10, 5)]
+    public void yaw_delta_calculated_properly(float xMousePos, float timeStep, float yaw, float expected)
+    {
+        RotationController rotationController = new RotationController(0, yaw, 0, Vector2.zero, Vector2.one);
+
+        rotationController.UpdateMouseDistance(new Vector2(xMousePos, 1080 / 2), new Vector2(1920, 1080));
+        rotationController.UpdateRotation(0, timeStep);
+
+        Assert.That(rotationController.GetDeltaRotation().y, Is.EqualTo(expected));
+    }
 
     // Using aspect ration Full HD (1920x1080) in unity
     // Make sure the screen size has been updated before running tests
