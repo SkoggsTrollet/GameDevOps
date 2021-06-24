@@ -40,6 +40,8 @@ public class Spaceship : MonoBehaviour
         speedController.UpdateSpeed(Time.deltaTime, verticalDirection);
 
         float horizontalDirection = Input.GetAxisRaw("Horizontal");
+
+        rotationController.UpdateMouseDistance(Input.mousePosition, new Vector2(Screen.width, Screen.height));
         rotationController.UpdateRotation(horizontalDirection, Time.deltaTime);
 
         transform.Rotate(rotationController.GetDeltaRotation(),Space.Self);

@@ -55,29 +55,31 @@ public class RotationController
 
     public void UpdateRotation(float direction, float timeStep)
     {
+        pitchDelta = mouseDistance.y * timeStep * pitchSpeed;
+        yawDelta = mouseDistance.x * timeStep * yawSpeed;
         rollDelta = direction * timeStep * rollSpeed;
     }
 
-    public void CalculateMouseDistance(Vector2 mousePos)
+    public void UpdateMouseDistance(Vector2 mousePos, Vector2 screenSize)
     {
         mouseDistance = Vector2.zero;
 
-        if(mousePos.x > Screen.width / 2 + innerLimit.x)
+        if(mousePos.x > screenSize.x / 2 + innerLimit.x)
         {
-            mouseDistance.x = (mousePos.x - (Screen.width/2 + innerLimit.x)) / (outerLimit.x - innerLimit.x);
+            mouseDistance.x = (mousePos.x - (screenSize.x / 2 + innerLimit.x)) / (outerLimit.x - innerLimit.x);
         }
-        else if(mousePos.x < Screen.width / 2 - innerLimit.x)
+        else if(mousePos.x < screenSize.x / 2 - innerLimit.x)
         {
-            mouseDistance.x = (mousePos.x - (Screen.width / 2 - innerLimit.x)) / (outerLimit.x - innerLimit.x);
+            mouseDistance.x = (mousePos.x - (screenSize.x / 2 - innerLimit.x)) / (outerLimit.x - innerLimit.x);
         }
 
-        if(mousePos.y > Screen.height / 2 + innerLimit.y)
+        if(mousePos.y > screenSize.y / 2 + innerLimit.y)
         {
-            mouseDistance.y = (mousePos.y - (Screen.height / 2 + innerLimit.y)) / (outerLimit.y - innerLimit.y);
+            mouseDistance.y = (mousePos.y - (screenSize.y / 2 + innerLimit.y)) / (outerLimit.y - innerLimit.y);
         }
-        else if(mousePos.y < Screen.height / 2 - innerLimit.y)
+        else if(mousePos.y < screenSize.y / 2 - innerLimit.y)
         {
-            mouseDistance.y = (mousePos.y - (Screen.height / 2 - innerLimit.y)) / (outerLimit.y - innerLimit.y);
+            mouseDistance.y = (mousePos.y - (screenSize.y / 2 - innerLimit.y)) / (outerLimit.y - innerLimit.y);
         }
 
         mouseDistance.x = Mathf.Clamp(mouseDistance.x, -1, 1);

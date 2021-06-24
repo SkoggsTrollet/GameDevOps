@@ -67,7 +67,7 @@ public class RotationControllerTest
 
         RotationController rotationController = new RotationController(0, 0, 0, innerLimit, Vector2.one * 2);
 
-        rotationController.CalculateMouseDistance(mousePos);
+        rotationController.UpdateMouseDistance(mousePos, new Vector2(1920, 1080));
 
         Assert.That(rotationController.GetMouseDistance(), Is.EqualTo(expected));
     }
@@ -96,7 +96,7 @@ public class RotationControllerTest
 
         RotationController rotationController = new RotationController(0, 0, 0, Vector2.one, outerLimit);
 
-        rotationController.CalculateMouseDistance(mousePos);
+        rotationController.UpdateMouseDistance(mousePos, new Vector2(1920, 1080));
 
         Assert.That(rotationController.GetMouseDistance(), Is.EqualTo(expected));
     }

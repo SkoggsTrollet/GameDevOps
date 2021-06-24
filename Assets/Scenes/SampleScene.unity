@@ -1559,11 +1559,11 @@ MonoBehaviour:
   minSpeed: 0
   maxSpeed: 250
   acceleration: 25
-  pitchSpeed: 10
-  yawSpeed: 10
-  rollSpeed: 10
-  innerLimits: {x: 0, y: 0}
-  outerLimits: {x: 0, y: 0}
+  pitchSpeed: 100
+  yawSpeed: 100
+  rollSpeed: 100
+  innerLimits: {x: 10, y: 10}
+  outerLimits: {x: 1920, y: 1080}
 --- !u!65 &1173221894
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1636,7 +1636,8 @@ Transform:
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 165.18, y: -1.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1687258585}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
@@ -1896,12 +1897,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 171.7, y: -1.2, z: -0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.099999905, z: -0.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 1173221897}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &1687258586
 MonoBehaviour:
