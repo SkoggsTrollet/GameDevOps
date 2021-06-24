@@ -23,6 +23,11 @@ public class RotationController
 
         this.innerLimit = innerLimit;
         this.outerLimit = outerLimit;
+
+        if(outerLimit.magnitude <= innerLimit.magnitude)
+        {
+            this.outerLimit = innerLimit + Vector2.one;
+        }
     }
 
     public void UpdateRotation(float direction, float timeStep)
@@ -69,5 +74,15 @@ public class RotationController
     public Vector2 GetMouseDistance()
     {
         return mouseDistance;
+    }
+
+    public Vector2 GetInnerLimit()
+    {
+        return innerLimit;
+    }
+
+    public Vector2 GetOuterLimit()
+    {
+        return outerLimit;
     }
 }
