@@ -12,15 +12,15 @@ This is a list of various topics we'd like to explore this summer:
 - [X] Test Driven Development
   - [X] Introduction to TDD
   - [X] TDD in Unity
-- [ ] Git
-  - [ ] Introduction to Git
+- [X] Git
+  - [X] Introduction to Git
   - [ ] Dealing with large binaries
     - [ ] Shallow cloning
     - [ ] Git LFS
     - [ ] Unity packs
-- [ ] Debugging
-  - [ ] VS
+- [X] Debugging
 - [ ] GitHub Actions
+  - [X] Introduction
   - [ ] Automating Unity workflows
 - [ ] DORA metrics in Unity
 - [ ] Automating package management
